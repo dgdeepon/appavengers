@@ -46,7 +46,7 @@ function Add() {
     return ({title,description},token)=>{
         clearTimeout(time);
         time=setTimeout(()=>{
-            dispatch(addNow({title:title.trim(),description:description.trim()},token));
+            dispatch(addNow({title:title.trim(),description:description.trim(),date:new Date().getMinutes()},token));
         },1000)
     }
   }
