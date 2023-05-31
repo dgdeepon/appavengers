@@ -45,7 +45,7 @@ blog.patch('/update/:id',auth,async(req,res)=>{
 blog.patch('/autoSave',auth,async(req,res)=>{
     const blog=await blogModel.aggregate([{$match:{userId:req.body.userId}},{$match:{title:req.body.title}},{$sort:{_id:-1}},{$limit:1}]);
     try {
-        if(blog){
+        if(blog.length>0 && req.body.description){
             await blogModel.findByIdAndUpdate({_id:blog[0]._id},req.body);
             res.status(200).send({'success':'blog is saved'});
         }else{
