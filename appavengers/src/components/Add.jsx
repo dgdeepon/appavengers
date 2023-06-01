@@ -20,11 +20,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addNow, getData, updateNow } from '../redux/DataReducer/Action';
 import { faAdd } from '@fortawesome/free-solid-svg-icons';
 
-function Add() {
+function Add({no}) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [Values, setValues] = useState({
     title:'',
-    description:''
+    description:'',
+    no:no+1
   });
   const [flag,setFlag]=useState(false);
   const [trigger,setTrigger]=useState({
@@ -43,10 +44,10 @@ function Add() {
 
   function debouce(){
     let time;
-    return ({title,description},token)=>{
+    return ({title,description,no},token)=>{
         clearTimeout(time);
         time=setTimeout(()=>{
-            dispatch(addNow({title:title.trim(),description:description.trim()},token));
+            dispatch(addNow({title:title.trim(),description:description.trim(),no:no},token));
         },1000)
     }
   }
@@ -75,7 +76,8 @@ function Add() {
           <ModalCloseButton onClick={()=>{
             setValues({
                 title:'',
-                description:''
+                description:'',
+                no:''
               })
               setTrigger({
                 debouceTrigger:''

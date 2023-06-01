@@ -14,6 +14,10 @@ function Navbar() {
   })
   const dispatch=useDispatch();
 
+  const {data}=useSelector((store)=>{
+    return store.dataReducer;
+  })
+
   
   if(!token){
     return <Navigate to={'/signin'}/>
@@ -21,7 +25,7 @@ function Navbar() {
 
   return (
     <HStack p={'25px'} justifyContent={'space-between'} w={'100%'}>
-            <Add/>
+            <Add no={data?.length}/>
             <Button onClick={()=>{
               dispatch(logOut);
             }}>
