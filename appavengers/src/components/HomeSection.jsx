@@ -9,8 +9,7 @@ function HomeSection() {
         <VStack  textAlign={'left'} justifyContent={'center'}>
           <Box>
           <Text fontWeight={'bold'} fontSize={'4xl'}>Write your first blog!</Text>
-          <Text lineHeight={'2'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi voluptatibus in blanditiis nam, illum quibusdam eum eveniet, esse maxime id hic reiciendis neque commodi ex excepturi nemo placeat ducimus magnam.
-          Quos cumque asperiores repudiandae totam, odit sed similique adipisci eos, perspiciatis laboriosam consequatur minima. Officiis odit quo numquam. Assumenda accusamus earum similique laudantium in dolor saepe nesciunt rem, suscipit quaerat.</Text>
+          <Text lineHeight={'2'}>Blogging is a great way to showcase your skills and share your knowledge with the world. By writing blog posts, you can demonstrate your expertise in a particular topic and attract new readers and followers.Additionally, blogging can help you improve your writing skills and learn new things. By practising regularly, you can become a better writer and gain valuable insights into your field of interest.</Text>
           <Box mt={'10px'}>
             <Link to={'/signup'}>
             <Button mr={'10px'} bgColor={'#f553b8'} color={'white'}>Sign Up</Button>
