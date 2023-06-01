@@ -56,7 +56,7 @@ blog.patch('/autoSave',auth,async(req,res)=>{
     } catch (error) {
         res.status(501).send({'error':'failed to save the blog'});
     }
-})
+});
 
 
 // delete
