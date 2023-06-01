@@ -5,6 +5,7 @@ import NotFound from '../components/NotFound'
 import RegisterPage from '../pages/RegisterPage'
 import LoginPage from '../pages/LoginPage'
 import Dashboard from '../pages/Dashboard'
+import PrivateRoutes from './PrivateRoutes'
 
 function MainRoute() {
   return (
@@ -12,7 +13,10 @@ function MainRoute() {
         <Route path='/' element={<HomePage/>}/>
         <Route path='/signup' element={<RegisterPage/>}/>
         <Route path='/signin' element={<LoginPage/>}/>
-        <Route path='/dashboard' element={<Dashboard/>}/>
+        <Route path='/dashboard' element={<PrivateRoutes>
+          <Dashboard/>
+        </PrivateRoutes> 
+        }/>
         <Route path='/*' element={<NotFound/>}/>
     </Routes>
   )

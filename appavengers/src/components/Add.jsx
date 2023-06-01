@@ -24,19 +24,18 @@ function Add({no}) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [Values, setValues] = useState({
     title:'',
-    description:'',
-    no:no+1
+    description:''
   });
+  const [num,setNum]=useState((Math.random()*10000000).toFixed(0));
   const [flag,setFlag]=useState(false);
   const [trigger,setTrigger]=useState({
     debouceTrigger:''
   })
-
   const dispatch=useDispatch();
   const {token}=useSelector((store)=>{
     return store.loginReducer;
   })
-
+  
   function handleChange(e){
       setValues({...Values,[e.target.name]:e.target.value});
   }
@@ -47,7 +46,7 @@ function Add({no}) {
     return ({title,description,no},token)=>{
         clearTimeout(time);
         time=setTimeout(()=>{
-            dispatch(addNow({title:title.trim(),description:description.trim(),no:no},token));
+            dispatch(addNow({title:title.trim(),description:description.trim(),no:num},token));
         },1000)
     }
   }
@@ -77,12 +76,12 @@ function Add({no}) {
             setValues({
                 title:'',
                 description:'',
-                no:''
               })
               setTrigger({
                 debouceTrigger:''
               });
               setFlag(false);
+              setNum((Math.random()*10000000).toFixed(0));
           }} />
           <ModalBody>
             <form 
