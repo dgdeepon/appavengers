@@ -46,7 +46,7 @@ function Add() {
     return ({title,description},token)=>{
         clearTimeout(time);
         time=setTimeout(()=>{
-            dispatch(addNow({title:title.trim(),description:description.trim(),date:new Date().getMinutes()},token));
+            dispatch(addNow({title:title.trim(),description:description.trim()},token));
         },1000)
     }
   }
@@ -55,7 +55,7 @@ function Add() {
     if(!flag){
       setTrigger({...trigger,debouceTrigger:debouce()});
       setFlag(true);
-    }else if(flag && Values.description){
+    }else if(flag && Values.description.trim() && Values.title.trim()){
       trigger.debouceTrigger(Values,token);
     }
   },[Values])
